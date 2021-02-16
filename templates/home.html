@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content%}
+	
+	<div class="text-center w-100 scroll my-4">
+		<h3>Books in Book Portal</h3>
+		
+		<table class="table table-bordered">
+		  <thead>
+		    <tr class="bg-secondary text-white">
+		      <th scope="col">Book Name</th>
+		      <th scope="col">Author</th>
+		      <th scope="col">Uploaded By</th>
+		      <th scope="col">Upload Date</th>
+		      <th scope="col">Download</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	{% for book in books %}
+		    <tr>
+		      <th scope="row">{{book.bookname}}</th>
+		      <td>{{book.bookauthor}}</td>
+		      <td>{{book.uploadedby}}</td>
+		      <td>{{book.uploaded_at | date:"d F Y"}}</td>
+		      {% if user.is_authenticated%}
+		     	 <td><a href="{{book.document.url}}" target="_blank">Download</a></td>
+		      {% else %}
+		      	<td><a href="{% url 'login' %}" muted>Download</a></td>
+		      {% endif %}
+		    </tr>
+		    {% endfor %}
+		  </tbody>
+		</table>
+	</div>
+
+	<div class="text-center">
+		{% if user.is_authenticated %}
+		<a href="{% url 'upload' %}" class="btn btn-primary">Upload Book</a>
+		<a href="{% url 'viewbooks' %}" class="btn btn-outline-success">Your Books</a>
+		{% else %}
+			<h4><a href="{% url 'login' %}">Login</a> or <a href="{% url 'signup' %}">Signup</a> to Download or Upload Books.</h4>
+			<p></p>
+		{% endif %}
+	</div>
+{% endblock %}

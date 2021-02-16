@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="col-md-6 offset-md-3 shadow p-4 border margintop20">
+	<h3 class="text-center">Welcome Back!</h3>
+	<form method="post" novalidate="" autocomplete="off">
+
+	{% csrf_token %}
+	
+	{{form|crispy}}
+
+	<div class="text-center mt-4">
+		<p><a href="{% url 'signup' %}">Don't have an account? </a></p>
+		<input type="submit" value="Login" class="btn btn-primary w-50">
+	</div>
+
+</form>
+</div>
+
+{% endblock %}

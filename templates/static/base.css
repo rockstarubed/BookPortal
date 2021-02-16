@@ -1,0 +1,30 @@
+html,body,.container{
+    height: 100%;
+}
+
+.asteriskField{
+    display: none;
+}
+
+form .alert ul li {
+    list-style: none;
+}
+
+.scroll {
+    height: 80%;
+    overflow: auto;
+    padding: 15px;
+    /* scrollbar-width: none; */
+}
+
+.margintop20{
+    margin-top: 20%;
+}
+
+.margintop15{
+    margin-top: 15%;
+}
+
+.margintop10{
+    margin-top: 10%;
+}
