@@ -1,57 +1,58 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-<div class="jumbotron bg-light">
+<div class="pt-4">
+  <div class="jumbotron">
   <h1 class="display-4">Book Portal!</h1>
   <p class="lead">This is a simple online portal to Upload and Downalod E-Books.</p>
   <hr class="my-4">
   <div class="text-secondary">
-  	<p><h5>Book Portal is developed using Django-2.2.11, Bootstrap-4, HTML-5 and SQLite-3 database</h5></p>
-	<p><h5>A user account is required to use the upload & download features of this portal.</h5></p>
-	<p><h5>The portal uses Django's built in user authentication system for user register/login</h5></p>
+    <p><h5>Book Portal is developed using Django-2.2.11, Bootstrap-4, HTML-5 and SQLite-3 database</h5></p>
+  <p><h5>A user account is required to use the upload & download features of this portal.</h5></p>
+  <p><h5>The portal uses Django's built in user authentication system for user register/login</h5></p>
   </div>
  {% if user.is_authenticated %}
- 	<a class="btn btn-primary btn-lg" href="{% url 'home' %}" role="button">Home Page</a>
+  <a class="btn btn-primary btn-lg" href="{% url 'home' %}" role="button">Home Page</a>
   {% else %}
-  	<a class="btn btn-primary btn-lg" href="{% url 'signup' %}" role="button">Register Now</a>
+    <a class="btn btn-primary btn-lg" href="{% url 'signup' %}" role="button">Register Now</a>
   {% endif %}
    <hr class="">
  <div class="row">
- 	<div class="col-6">
- 		<h2 class="text-dark">Contact Us</h2>
- 	</div>
- 	<div class="col-6">
- 		<h2 class="text-dark">Write Us</h2>
- 	</div>
+  <div class="col-6">
+    <h2 class="text-dark">Contact Us</h2>
+  </div>
+  <div class="col-6">
+    <h2 class="text-dark">Write Us</h2>
+  </div>
  </div>
   <div class="row">
-  	<div class="col-6">
-  		<table class="table table-secondary">
-  		<tr>
-  			<th scope="row">Mobile:</th>
-  			<td>1234567890</td>
-  		</tr>
-  		<tr>
-  			<th scope="row">E-mail:</th>
-  			<td>example@example.com</td>
-  		</tr>
-  		<tr>
-  			<th scope="row">Address:</th>
-  			<td>Somewhere on Earth!</td>
-  		</tr>
-  		<tr>
-  			<th scope="row">Facebook:</th>
-  			<td><a href="facebook.com">https://www.facebook.com </a></td>
-  		</tr>
-  		<tr>
-  			<th scope="row">Instagram:</th>
-  			<td><a href="facebook.com">https://www.instagram.com </a></td>
-  		</tr>
-  	</table>
-  	</div>
-  	<div class="col-6">
-  		
-		<div class="px-4 py-3 bg-secondary text-white">
+    <div class="col-6">
+      <table class="table table-secondary">
+      <tr>
+        <th scope="row">Mobile:</th>
+        <td>1234567890</td>
+      </tr>
+      <tr>
+        <th scope="row">E-mail:</th>
+        <td>example@example.com</td>
+      </tr>
+      <tr>
+        <th scope="row">Address:</th>
+        <td>Somewhere on Earth!</td>
+      </tr>
+      <tr>
+        <th scope="row">Facebook:</th>
+        <td><a href="facebook.com">https://www.facebook.com </a></td>
+      </tr>
+      <tr>
+        <th scope="row">Instagram:</th>
+        <td><a href="facebook.com">https://www.instagram.com </a></td>
+      </tr>
+    </table>
+    </div>
+    <div class="col-6">
+      
+    <div class="px-4 py-3 bg-secondary text-white">
         <form method="post" novalidate="" autocomplete="off">
 
         {% csrf_token %}
@@ -62,17 +63,17 @@
           <input type="submit" value="Submit" class="btn btn-primary w-50">
         </div>
       </form>
-	 </div>
+   </div>
   </div>
   </div> <!-- Row Ends -->
 
   <div class="text-center mt-5">
-  		{% if user.is_authenticated %}
-  			<h3>Thanks {{user.username}} for using Book Portal!</h3>
-  		{% else %}
-  			<h3>Thanks for visiting our Book Portal!</h3>
-  		{% endif %}
-  	</div>
+      {% if user.is_authenticated %}
+        <h3>Thanks {{user.username}} for using Book Portal!</h3>
+      {% else %}
+        <h3>Thanks for visiting our Book Portal!</h3>
+      {% endif %}
+    </div>
 </div>
-
+</div>
 {% endblock %}

@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from . models import Books
 from . forms import UploadForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 # book upload form view
@@ -24,6 +25,18 @@ def upload(request):
 def viewbooks(request):
 	books = Books.objects.filter(uploadedby=request.user.username)
 	return render(request,'books/viewbooks.html', {'books':books})
+
+@login_required
+def editbook(request,pk):
+	book = Books.objects.get(pk=pk)
+	form = UploadForm(instance=book)
+	if request.method == 'POST':
+		updateBook = UploadForm(request.POST,instance=book)
+		if updateBook.is_valid():
+			updateBook.save()
+			messages.success(request,"Data has been updated.")
+			return redirect('viewbooks')
+	return render(request,'books/editbook.html',{'form':form, 'book':book})
 
 
 # delete books view

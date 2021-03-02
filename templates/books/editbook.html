@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-md-8 offset-md-2 shadow p-4 border margintop20 bg-light">
+	<h4 class="text-center mt-4">Update Book Data</h4>
+	<form method="post">
+		{{form|crispy}}
+		{% csrf_token %}
+		<div class="text-center">
+			<input type="submit" value="Update" class="btn btn-primary w-25">
+		</div>
+	</form>
+</div>
+{% endblock %}

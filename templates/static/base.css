@@ -1,6 +1,4 @@
-html,body,.container{
-    height: 100%;
-}
+
 
 .asteriskField{
     display: none;
@@ -11,10 +9,11 @@ form .alert ul li {
 }
 
 .scroll {
-    height: 80%;
+    max-height: 800px;
+    min-height: 500px;
     overflow: auto;
     padding: 15px;
-    /* scrollbar-width: none; */
+    background-color: whitesmoke;
 }
 
 .margintop20{
@@ -27,4 +26,9 @@ form .alert ul li {
 
 .margintop10{
     margin-top: 10%;
+}
+
+.bookname a{
+    text-decoration: none;
+    color: black;
 }
