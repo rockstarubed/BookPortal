@@ -10,5 +10,9 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
 ]
 
+admin.site.site_header = 'BookPortal'
+admin.site.site_title = 'BookPortal-Administration'
+admin.site.index_title = 'BookPortal-Administration'
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
